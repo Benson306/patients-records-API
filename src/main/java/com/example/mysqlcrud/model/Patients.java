@@ -1,8 +1,16 @@
 package com.example.mysqlcrud.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "patients")
 public class Patients {
+    @Id
+    @GeneratedValue
 
     @JsonProperty("id")
     private int id;
