@@ -33,9 +33,9 @@ public class PatientsMySqlService {
         return "Patient Removed";
     }
 
-    public String updatePatient(Patients patient){
+    public String updatePatient(int id,Patients patient){
         //get ID
-        Patients existingPatient = patientsDao.findById(patient.getId()).orElse(null);
+        Patients existingPatient = patientsDao.findById(id).orElse(null);
         existingPatient.setFullName(patient.getFullName());
         existingPatient.setYOB(patient.getYOB());
 

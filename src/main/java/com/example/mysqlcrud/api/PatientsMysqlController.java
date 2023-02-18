@@ -36,9 +36,9 @@ public class PatientsMysqlController {
         return patientsMySqlService.deletePatient(id);
     }
 
-    @PutMapping(value = "/edit")
-    public String updatePatient(@RequestBody Patients patient){
-        return patientsMySqlService.updatePatient(patient);
+    @PutMapping(value = "/edit/{id}")
+    public String updatePatient(@PathVariable int id,@RequestBody Patients patient){
+        return patientsMySqlService.updatePatient(id,patient);
     }
 
 
