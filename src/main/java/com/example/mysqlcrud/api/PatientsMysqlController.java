@@ -13,23 +13,23 @@ public class PatientsMysqlController {
     @Autowired
     private PatientsMySqlService patientsMySqlService;
 
-    @PostMapping(value = "/add")
-    public Patients addPatients(@RequestBody Patients patient){
-        return patientsMySqlService.savePatient(patient);
-    }
-
     @GetMapping
     public List<Patients> getPatients(){
         return patientsMySqlService.getPatients();
     }
-    @GetMapping(value = "/{patientId}")
+    @GetMapping(value = "/id/{patientId}")
     public Patients getPatientById(@PathVariable("patientId") int patientId){
         return patientsMySqlService.getPatientById(patientId);
     }
 
-    @GetMapping(value = "/{name}")
+    @GetMapping(value = "/name/{name}")
     public Patients getPatientByName(@PathVariable("name") String patientName){
         return patientsMySqlService.getPatientByName(patientName);
+    }
+
+    @PostMapping(value = "/add")
+    public Patients addPatients(@RequestBody Patients patient){
+        return patientsMySqlService.savePatient(patient);
     }
     @DeleteMapping(value = "/delete/{id}")
     public String deletePatient(@PathVariable("id") int id){
